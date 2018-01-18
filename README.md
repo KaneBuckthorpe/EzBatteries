@@ -1,0 +1,2 @@
+# BatteryInfo
+Detailed Battery Information
