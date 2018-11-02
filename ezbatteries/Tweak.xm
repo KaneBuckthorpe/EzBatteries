@@ -4,20 +4,20 @@
 
 @interface UIStatusBarWindow : UIWindow
 - (void)check; // from %new
-    @end
+@end
 
 @interface BCBatteryDeviceController {
     NSArray *_sortedDevices;
 }
-    
+
 + (id)sharedInstance;
-    @end
+@end
 
 @interface BCBatteryDevice {
     long long _percentCharge;
     NSString *_name;
 }
-    @end
+@end
 
 static NSString *deviceName;
 static long long deviceCharge;
@@ -42,10 +42,10 @@ static long long deviceCharge;
 ////using activator in your tweak- create object comforming to LAListener
 /// protocol
 @interface EZBatteriesActivator : NSObject<LAListener>
-    @end
+@end
 
 @implementation EZBatteriesActivator
-    /// Register our listener names
+/// Register our listener names
 + (void)load {
     LAActivator *activator = [% c(LAActivator) sharedInstance];
     
@@ -59,11 +59,11 @@ static long long deviceCharge;
                             forName:@"com.ezbatteries.toggle"];
     }
 }
-    
-    /// React to our listener being triggered
+
+/// React to our listener being triggered
 - (void)activator:(LAActivator *)activator
-     receiveEvent:(LAEvent *)event
-  forListenerName:(NSString *)listenerName {
+receiveEvent:(LAEvent *)event
+forListenerName:(NSString *)listenerName {
     
     if ([listenerName isEqualToString:@"com.ezbatteries.show"]) {
         
@@ -75,7 +75,7 @@ static long long deviceCharge;
         /// toggle battery info (needs adding)
     }
 }
-    @end
+@end
 
 % ctor {
     if ([NSBundle.mainBundle.bundleIdentifier
@@ -113,8 +113,8 @@ static long long deviceCharge;
                                      [UIAlertAction actionWithTitle:@"Dismiss"
                                                               style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction *action){
-                                                                // Do nothing
-                                                            }];
+                                      // Do nothing
+                                      }];
                                      
                                      [confirmationAlertController addAction:confirmCancel];
                                      [[UIApplication sharedApplication].keyWindow.rootViewController
