@@ -22,8 +22,8 @@
 static NSString *deviceName;
 static long long deviceCharge;
 
-% hook UIStatusBarWindow - (instancetype)initWithFrame : (CGRect)frame {
-    self = % orig;
+%hook UIStatusBarWindow - (instancetype)initWithFrame : (CGRect)frame {
+    self = %orig;
     
     UITapGestureRecognizer *tapRecognizer =
     [[UITapGestureRecognizer alloc] initWithTarget:self
@@ -35,9 +35,9 @@ static long long deviceCharge;
     return self;
 }
 
-% new - (void)check { notify_post("com.idevicehacked.ezbatteries"); }
+%new - (void)check { notify_post("com.idevicehacked.ezbatteries"); }
 
-% end
+%end
 
 ////using activator in your tweak- create object comforming to LAListener
 /// protocol
